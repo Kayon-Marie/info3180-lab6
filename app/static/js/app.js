@@ -11,10 +11,10 @@ Vue.component('app-header', {
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <router-link to="/" class="nav-link">Home<router-link>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">News</a>
+                    <router-link to="/news" class="nav-link">News</router-link>
                   </li>
                 </ul>
               </div>
@@ -37,9 +37,9 @@ Vue.component('app-footer', {
             year: (new Date).getFullYear()
         }
     }
-})
+});
 
-Vue.component('news-list', {
+const NewsList = Vue.component('news-list', {
     template: `
         <div class="news">
           <div class="form-inline d-flex justify-content-center">
@@ -100,12 +100,32 @@ Vue.component('news-list', {
           });
       }
     }
-})
+});
 
+const Home = Vue.component('home', {
+  template: `
+    <div class="home">
+      <img src="/static/images/logo.png" alt="VueJS Logo">
+      <h1>{{ welcome }}</h1>
+    </div>
+  `,
+  data: function() {
+    return {
+      welcome: 'Hello World! Welcome to VueJS'
+    }
+  }
+});
+
+const router = new VueRouter({
+  mode: 'history',
+  routes: [
+    { path: '/', component: Home},
+    { path: '/news', component: NewsList}
+  ]
+});
 
 let app = new Vue({
     el: '#app',
-    data: {
-    }
+    router
 });
 
