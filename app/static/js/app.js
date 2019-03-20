@@ -42,12 +42,23 @@ Vue.component('app-footer', {
 Vue.component('news-list', {
     template: `
         <div class="news">
-            <h2>News</h2>
-            <ul class="news__list">
-            <li v-for="article in articles" class="news__item">{{ article.title }}
-            <img :src= article.urlToImage />
-            {{ article.description }}</li>
-            </ul>
+          <h2>News</h2>
+          <div class="row">
+            <div v-for="article in articles" class="col-sm-4">
+              <div class="card borderCol leftFix btmSpace">
+                <div class="card-head">
+                  <h5 class="card-title">{{ article.title }}</h5>
+                </div>
+                <div class="card-body">
+                  <img class="card-img-top" :src= article.urlToImage />
+                  </div>
+                  <div class="card-footer noBorder">
+                    <small>{{ article.description }}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
     `,
     created: function() {

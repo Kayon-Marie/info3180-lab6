@@ -5,3 +5,25 @@ body {
 footer  {
     padding-top: 20px;
 }
+
+/* Remove border between image and description */
+.noBorder{
+    border: none;
+    background: transparent;
+}
+
+/* Float the text of the article to the left */
+.leftFix{
+    text-align: left;
+}
+
+/* Adds a border with colour to the top of each
+    article */
+.borderCol{
+    border-top: 5px solid #52be80; 
+}
+
+/* Adds space below each row of articles */
+.btmSpace{
+    margin-bottom: 20px;
+}
