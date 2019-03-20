@@ -27,3 +27,7 @@ footer  {
 .btmSpace{
     margin-bottom: 20px;
 }
+
+ul{
+    list-style-type: none;
+}
